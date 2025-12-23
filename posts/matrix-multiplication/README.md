@@ -68,7 +68,10 @@ make naive DEBUG=1       # -O0 -g
 
 ### Run all algorithms for the same matrix sizes
 ```bash
-./bench_accel --algo all --M 1024 --N 1024 --K 1024 --runs 5 --seed 1 --json --save results.jsonl
+# Run all algorithms on the same matrixes and save results to results.jsonl (this will skip metal, cause we run bench_naive)
+./bench_naive --algo all --M 1024 --N 1024 --K 1024 --runs 5 --seed 1 --json --save results.jsonl
+# Runs with metal algorithm too
+./bench_metal --algo all --M 2048 --N 2048 --K 2048 --runs 5 --seed 1 --json --save results.jsonl
 ```
 
 ## CLI options
