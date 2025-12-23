@@ -712,7 +712,9 @@ static const algo_t ALGOS_ALL[] = {
     {"blocked",    ALG_BLOCKED,    NULL,            NULL,            alg_blocked,    ops_gemm_classic, extra_none},
     {"gcd_mt",     ALG_GCD_MT,     NULL,            NULL,            alg_gcd_mt,     ops_gemm_classic, extra_none},
     {"accelerate", ALG_ACCELERATE, NULL,            NULL,            alg_accelerate, ops_gemm_classic, extra_none},
-    {"metal",      ALG_METAL,      NULL,            NULL,            alg_metal,      ops_gemm_classic, extra_metal},
+    #ifndef SKIP_METAL
+        {"metal",      ALG_METAL,      NULL,            NULL,            alg_metal,      ops_gemm_classic, extra_metal},
+    #endif
 
     {"vinograd",   ALG_VINOGRAD,   vinograd_init,   vinograd_destroy,alg_vinograd,   ops_vinograd,     extra_vinograd},
     {"strassen",   ALG_STRASSEN,   strassen_init,   strassen_destroy,alg_strassen,   ops_strassen,     extra_strassen},
